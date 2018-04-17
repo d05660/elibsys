@@ -1,0 +1,5 @@
+/bin/
+/dist/
+/build/classes/
+/exploded-archives/
+.DS_Store
