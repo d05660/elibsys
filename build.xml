@@ -9,12 +9,12 @@
     <property name="war.resources.dir" value="war/src/main/resources" />
     <property name="war.web.dir" value="war/src/main/web" />
     <property name="lib.dir" value="lib" />
-
+	<property name="resources.dir" value="resources" />
     <property name="ear.dir" value="exploded-archives/${project.name}.ear" />
     <property name="ejb.jar.dir" value="${ear.dir}/${project.name}_jar" />
     <property name="war.dir" value="${ear.dir}/${project.name}_war" />
 
-    <property name="deploy.dir" value="${jboss.home}/standalone/deployments" />
+    <property name="deploy.dir" value="${jboss.home}" />
 
     <path id="build.classpath">
         <fileset dir="${lib.dir}">
@@ -117,7 +117,13 @@
 
     <target name="deploy" depends="archive" description="Deploy the packaged archive">
         <fail unless="jboss.home">jboss.home not set</fail>
-        <copy todir="${deploy.dir}" file="${dist.dir}/${project.name}.ear" />
+        <copy todir="${deploy.dir}/standalone/deployments" file="${dist.dir}/${project.name}.ear" />
+    	<copy todir="${deploy.dir}/modules/com" overwrite="true">
+    		<fileset dir="${resources.dir}/jboss/modules">
+    			<include name="**"/>
+    		</fileset>
+    	</copy>
+    	<copy todir="${deploy.dir}/standalone/configuration" file="${resources.dir}/jboss/elibsys.xml" overwrite="true" />
     </target>
 
     <target name="undeploy" description="Undeploy the packaged archive">
