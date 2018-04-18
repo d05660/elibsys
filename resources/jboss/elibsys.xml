@@ -91,7 +91,7 @@
         <subsystem xmlns="urn:jboss:domain:datasources:1.0">
             <datasources>
                 <datasource jndi-name="java:jboss/datasources/MySQLDS" pool-name="MySQLDS" enabled="true" use-java-context="true">
-                    <connection-url>jdbc:mysql://127.0.0.1:3306/elibsys</connection-url>
+                    <connection-url>jdbc:mysql://localhost:3306/elibsys</connection-url>
                     <driver>com.mysql</driver>
                     <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>  
                     <pool>  
@@ -106,8 +106,8 @@
                         <share-prepared-statements>true</share-prepared-statements>
                     </statement>
                     <security>
-                        <user-name>root</user-name>
-                        <password>pwd</password>
+                        <user-name>cloud</user-name>
+                        <password>d05660</password>
                     </security>
                 </datasource>
                 <drivers>

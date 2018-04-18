@@ -2,6 +2,8 @@ package org.cloud.demo1.model;
 
 import java.io.Serializable;
 
+import static org.jboss.seam.ScopeType.SESSION;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,9 +13,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.jboss.seam.annotations.Name;
+import org.jboss.seam.annotations.Scope;
 
 @Entity
 @Name("user")
+@Scope(SESSION)
 @Table(name = "user")
 public class User implements Serializable {
 
@@ -62,6 +66,11 @@ public class User implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public String toString() {
+        return "User(" + username + ")";
     }
 
 }

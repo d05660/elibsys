@@ -8,13 +8,15 @@ import javax.persistence.PersistenceContext;
 
 import org.cloud.demo1.model.User;
 import org.jboss.seam.annotations.In;
+import org.jboss.seam.annotations.JndiName;
 import org.jboss.seam.annotations.Logger;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.faces.FacesMessages;
 import org.jboss.seam.log.Log;
 
 @Stateless
-@Name("register")
+@Name(value = "register")
+@JndiName(value="java:app/elibsys.jar/RegisterAction")
 public class RegisterAction implements Register {
 
     @In

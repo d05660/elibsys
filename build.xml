@@ -55,8 +55,8 @@
         <copy todir="${ejb.jar.dir}/META-INF">
             <fileset dir="${basedir}/ejb/ejbModule/META-INF">
                 <include name="ejb-jar.xml" />
-                <include name="orm.xml" />
                 <include name="persistence.xml" />
+                <include name="${ejb.resources.dir}/seam.properties" />
             </fileset>
         	<filterset refid="replace.token" />
         </copy>

@@ -12,7 +12,7 @@
         http://jboss.org/schema/seam/components
         http://jboss.org/schema/seam/components-2.3.xsd">
 
-  <core:init distributable="false" />
+  <core:init debug="true" jndi-pattern="java:app/elibsys/#{ejbName}" />
 
   <core:manager conversation-timeout="120000"
     concurrent-request-timeout="500" conversation-id-parameter="cid" />
@@ -25,6 +25,8 @@
     jndi-name="java:app/jboss-seam/EjbSynchronizations" />
   <component class="org.jboss.seam.async.TimerServiceDispatcher"
     jndi-name="java:app/jboss-seam/TimerServiceDispatcher" />
+  <!--  
   <component class="org.cloud.demo1.action.RegisterAction"
-    jndi-name="java:app/elibsys/RegisterAction" />
+    jndi-name="java:app/elibsys.jar/RegisterAction" />
+  -->
 </components>
