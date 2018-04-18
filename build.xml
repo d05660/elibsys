@@ -21,6 +21,10 @@
             <include name="**/*.jar" />
         </fileset>
     </path>
+	
+	<filterset id="replace.token">
+		<filter token="project.name" value="${project.name}"/>
+	</filterset>
 
     <!-- 初始化任务 -->
     <target name="init" depends="clean">
@@ -54,6 +58,7 @@
                 <include name="orm.xml" />
                 <include name="persistence.xml" />
             </fileset>
+        	<filterset refid="replace.token" />
         </copy>
     </target>
 
@@ -94,9 +99,9 @@
         <copy todir="${ear.dir}/META-INF">
             <fileset dir="${basedir}/ear/EarContent/META-INF">
                 <include name="application.xml" />
-                <include name="jboss-app.xml" />
                 <include name="jboss-deployment-structure.xml" />
             </fileset>
+        	<filterset refid="replace.token" />
         </copy>
     </target>
 

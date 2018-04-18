@@ -11,11 +11,11 @@
   </module>
   <module>
     <web>
-      <web-uri>elibsys.war</web-uri>
-      <context-root>/elibsys</context-root>
+      <web-uri>@project.name@.war</web-uri>
+      <context-root>/@project.name@</context-root>
     </web>
   </module>
   <module>
-    <ejb>elibsys.jar</ejb>
+    <ejb>@project.name@.jar</ejb>
   </module>
 </application>
